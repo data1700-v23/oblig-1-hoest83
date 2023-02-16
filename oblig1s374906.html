@@ -1,0 +1,219 @@
+// Oblig 1, data1700, s374906, Sverre Høst
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ukesoppgaver</title>
+    <meta charset="utf-8"/>
+
+
+    <style>
+    td2 {
+    text-align: center;
+    }
+    </style>
+
+</head>
+<script>
+    let billetter = [];
+
+    function output(){
+        let Fornavn = document.getElementById("Fornavn").value;
+        let FornavnK = "";
+
+        let Etternavn = document.getElementById("Etternavn").value;
+        let EtternavnK = "";
+
+        let Telefonnummer = document.getElementById("Telefonnummer").value;
+        let TelefonnummerK = 0;
+
+        let Epost = document.getElementById("Epost").value;
+        let EpostK = "";
+
+        let Antall = document.getElementById("Antall").value;
+        let AntallK = "";
+
+        let film = document.getElementById("filmer").value;
+
+
+        let lut = "<table><tr>" +
+            "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" +
+            "</tr>";
+
+       let ok = 0;
+
+
+        if(""== (Fornavn)){
+            document.getElementById("Fornavnut").style.color = "#ff0000";
+            document.getElementById("Fornavnut").innerHTML= "Må skrive inn noe i fornavnet";
+
+        } else {
+            FornavnK = Fornavn;
+            ok++;
+        }
+
+        if(""== (Etternavn)){
+            document.getElementById("Etternavnut").style.color = "#ff0000";
+            document.getElementById("Etternavnut").innerHTML= "Må skrive inn noe i etternavnet";
+
+        } else {
+            EtternavnK = Etternavn;
+            ok++;
+        }
+
+
+        if(""== (Telefonnummer)){
+            document.getElementById("Telefonnummerut").style.color = "#ff0000";
+            document.getElementById("Telefonnummerut").innerHTML= "Må skrive inn noe i tlfnummeret";
+
+        } else {
+            TelefonnummerK = Telefonnummer;
+            ok++;
+        }
+
+        if(""== (Epost)){
+            document.getElementById("Epostut").style.color = "#ff0000";
+            document.getElementById("Epostut").innerHTML= "Må skrive inn noe i epost";
+        } else {
+            EpostK = Epost;
+            ok++;
+        }
+
+        if(""== (Antall)){
+            document.getElementById("Antallut").style.color = "#ff0000";
+            document.getElementById("Antallut").innerHTML= "Må skrive inn noe i antall";
+
+        } else {
+            AntallK = Antall;
+            ok++;
+        }
+
+
+        let billett1 = {
+            film,
+            AntallK,
+            FornavnK,
+            EtternavnK,
+            TelefonnummerK,
+            EpostK
+        };
+
+        if(ok === 5){
+            billetter.push(billett1);
+        }
+
+
+        for (let b of billetter){
+            lut+="<tr>";
+            lut+="<td>"+b.film+"</td><td>"+b.AntallK+"</td><td>"+b.FornavnK+"</td><td>"+b.EtternavnK+"</td><td>"+b.TelefonnummerK+"</td><td>"+b.EpostK+"</td>";
+            lut+="</tr>";
+        }
+        lut+="</table>";
+        document.getElementById("utskrift").innerHTML=lut;
+    }
+
+
+</script>
+
+
+
+<body>
+<h1> Bestilling av kinobilletter </h1>
+<table>
+    <tr>
+        <td>
+            <select id="filmer">
+                <option value="Ingen film valgt" selected disabled hidden>Velg film</option>
+                <option value="The Terminator">The Terminator</option>
+                <option>Matrix</option>
+                <option>Tron</option>
+                <option>Her</option>
+                <option>WarGames</option>
+            </select>
+        </td>
+        <td>
+            <div id="filmut"></div>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>
+            Antall
+        </td>
+        <td>
+            <input type="number" id="Antall" min="1" max="9" />
+        </td>
+        <td>
+            <div id="Antallut"></div>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>
+            Fornavn
+        </td>
+        <td>
+            <input type="text" id="Fornavn" />
+        </td>
+        <td>
+            <div id="Fornavnut"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Etternavn
+        </td>
+        <td>
+            <input type="text" id="Etternavn" />
+        </td>
+        <td>
+            <div id="Etternavnut"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Telefonnummer
+        </td>
+        <td>
+            <input type="text" id="Telefonnummer" />
+        </td>
+        <td>
+            <div id="Telefonnummerut"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Epost
+        </td>
+        <td>
+            <input type="text" id="Epost" />
+        </td>
+        <td>
+            <div id="Epostut"></div>
+        </td>
+    </tr>
+    <tr>
+
+        <td>
+            <button value="Kjøp billett" onclick="output()">Kjøp billett </button>
+        </td>
+
+    </tr>
+</table>
+
+<h2>Alle billetter</h2>
+
+<div id="utskrift"></div><br>
+
+<td>
+    <button value="Slett alle billettene" onclick="location.reload()">Slett alle billettene</button>
+</td>
+
+
+
+
+</body>
+</html>
