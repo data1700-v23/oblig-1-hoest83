@@ -7,9 +7,9 @@
 
 
     <style>
-    td2 {
-    text-align: center;
-    }
+        td2 {
+            text-align: center;
+        }
     </style>
 
 </head>
@@ -39,7 +39,7 @@
             "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" +
             "</tr>";
 
-       let ok = 0;
+        let ok = 0;
 
 
         if(""== (Fornavn)){
@@ -49,6 +49,7 @@
         } else {
             FornavnK = Fornavn;
             ok++;
+            document.getElementById("Fornavnut").innerHTML= "";
         }
 
         if(""== (Etternavn)){
@@ -58,6 +59,7 @@
         } else {
             EtternavnK = Etternavn;
             ok++;
+            document.getElementById("Etternavnut").innerHTML= "";
         }
 
 
@@ -68,6 +70,7 @@
         } else {
             TelefonnummerK = Telefonnummer;
             ok++;
+            document.getElementById("Telefonnummerut").innerHTML= "";
         }
 
         if(""== (Epost)){
@@ -76,6 +79,7 @@
         } else {
             EpostK = Epost;
             ok++;
+            document.getElementById("Epostut").innerHTML= "";
         }
 
         if(""== (Antall)){
@@ -85,6 +89,7 @@
         } else {
             AntallK = Antall;
             ok++;
+            document.getElementById("Antallut").innerHTML= "";
         }
 
 
