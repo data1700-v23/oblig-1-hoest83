@@ -1,4 +1,4 @@
-// Oblig 1, data1700, s374906, Sverre Høst
+<!-- Oblig 1, data1700, s374906, Sverre Høst -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +14,11 @@
 
 </head>
 <script>
-    let billetter = [];
+    let billetter = [];                                             <!-- array billetter lagres i -->
 
     function output(){
-        let Fornavn = document.getElementById("Fornavn").value;
-        let FornavnK = "";
+        let Fornavn = document.getElementById("Fornavn").value;      <!-- variabler input -->
+        let FornavnK = "";                                           <!-- variabler input, kjørt gjennom en kontroll(K) -->
 
         let Etternavn = document.getElementById("Etternavn").value;
         let EtternavnK = "";
@@ -35,17 +35,15 @@
         let film = document.getElementById("filmer").value;
 
 
-        let lut = "<table><tr>" +
+        let ut = "<table><tr>" +                                    <!-- output string objekter i billetter array -->
             "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th>" +
             "</tr>";
 
         let ok = 0;
 
-
         if(""== (Fornavn)){
-            document.getElementById("Fornavnut").style.color = "#ff0000";
+            document.getElementById("Fornavnut").style.color = "#ff0000";       <!-- feilmelding hvis feil input -->
             document.getElementById("Fornavnut").innerHTML= "Må skrive inn noe i fornavnet";
-
         } else {
             FornavnK = Fornavn;
             ok++;
@@ -55,18 +53,15 @@
         if(""== (Etternavn)){
             document.getElementById("Etternavnut").style.color = "#ff0000";
             document.getElementById("Etternavnut").innerHTML= "Må skrive inn noe i etternavnet";
-
         } else {
             EtternavnK = Etternavn;
             ok++;
             document.getElementById("Etternavnut").innerHTML= "";
         }
 
-
         if(""== (Telefonnummer)){
             document.getElementById("Telefonnummerut").style.color = "#ff0000";
             document.getElementById("Telefonnummerut").innerHTML= "Må skrive inn noe i tlfnummeret";
-
         } else {
             TelefonnummerK = Telefonnummer;
             ok++;
@@ -85,15 +80,13 @@
         if(""== (Antall)){
             document.getElementById("Antallut").style.color = "#ff0000";
             document.getElementById("Antallut").innerHTML= "Må skrive inn noe i antall";
-
         } else {
             AntallK = Antall;
             ok++;
             document.getElementById("Antallut").innerHTML= "";
         }
 
-
-        let billett1 = {
+        let billett1 = {                                                <!-- billett objekter med tilhørende variabler -->
             film,
             AntallK,
             FornavnK,
@@ -102,26 +95,23 @@
             EpostK
         };
 
-        if(ok === 5){
+        if(ok === 5){                                                     <!-- billettobjekt pushes inn i array om 5 inputs er klare -->
             billetter.push(billett1);
         }
 
-
-        for (let b of billetter){
-            lut+="<tr>";
-            lut+="<td>"+b.film+"</td><td>"+b.AntallK+"</td><td>"+b.FornavnK+"</td><td>"+b.EtternavnK+"</td><td>"+b.TelefonnummerK+"</td><td>"+b.EpostK+"</td>";
-            lut+="</tr>";
+        for (let b of billetter){                                         <!-- utskrfit av billetter array -->
+            ut+="<tr>";
+            ut+="<td>"+b.film+"</td><td>"+b.AntallK+"</td><td>"+b.FornavnK+"</td><td>"+b.EtternavnK+"</td><td>"+b.TelefonnummerK+"</td><td>"+b.EpostK+"</td>";
+            ut+="</tr>";
         }
-        lut+="</table>";
-        document.getElementById("utskrift").innerHTML=lut;
+        ut+="</table>";
+        document.getElementById("utskrift").innerHTML=ut;
     }
-
 
 </script>
 
-
-
 <body>
+
 <h1> Bestilling av kinobilletter </h1>
 <table>
     <tr>
@@ -139,6 +129,7 @@
             <div id="filmut"></div>
         </td>
     </tr>
+
 </table>
 
 <table>
@@ -201,11 +192,14 @@
         </td>
     </tr>
     <tr>
-
+        <td>
+            <br>
+        </td>
+    </tr>
+    <tr>
         <td>
             <button value="Kjøp billett" onclick="output()">Kjøp billett </button>
         </td>
-
     </tr>
 </table>
 
@@ -216,8 +210,6 @@
 <td>
     <button value="Slett alle billettene" onclick="location.reload()">Slett alle billettene</button>
 </td>
-
-
 
 
 </body>
